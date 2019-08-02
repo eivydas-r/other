@@ -22,15 +22,28 @@ Successfully logged [FULL NAME] out at 0:00:00
 
 import java.util.Scanner;
 
-public class Logger{
+public class Main{
      public static void main(String []args){
          // catch any errors
          try{
-             intro();
+             login("test");
+             //intro();
          } catch (Exception e){
              System.out.println("\n[ERROR] Error caught:\n\t"+e);
          }
      }
+     
+     public static class employee{
+         String fullName;
+         boolean loggedIn;
+         
+         void employee(){
+             fullName = "empty";
+             loggedIn = false;
+         }
+     }
+     static employee[] employees = new employee[26]; // 26 employees
+     employees[0].fullName = "John Doe";
      
      // load up introduction
      public static void intro(){
@@ -48,8 +61,10 @@ public class Logger{
      }
      
      // initiate login (param: full name)
-     public static void login(){
-         
+     public static void login(String name){
+         for(employee i : employees){
+             System.out.println(i);
+         }
      }
      
      // initiate logout (param: full name)

@@ -1,4 +1,7 @@
 // employee/visitor terminal logger
+// by Eivydas Raulynaitis
+// 8/2/2019
+
 /*
 COMPANY LOGIN:
     Employee: [e]
@@ -21,6 +24,7 @@ import java.util.Scanner;
 
 public class Logger{
      public static void main(String []args){
+         // catch any errors
          try{
              intro();
          } catch (Exception e){
@@ -28,11 +32,13 @@ public class Logger{
          }
      }
      
+     // load up introduction
      public static void intro(){
-         System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nType login type [e/v/g] for options: ");
+        System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nType login type [e/v/g] for options: ");
          
         Scanner scan = new Scanner(System.in);
         
+        // does current terminal window allow Scanner inputs?
         if(scan.hasNextLine()){
             String input = scan.nextLine();
         } else { 
@@ -41,10 +47,12 @@ public class Logger{
 
      }
      
+     // initiate login (param: full name)
      public static void login(){
          
      }
      
+     // initiate logout (param: full name)
      public static void logout(){
          
      }

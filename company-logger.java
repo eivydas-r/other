@@ -23,28 +23,36 @@ Successfully logged [FULL NAME] out at 0:00:00
 import java.util.Scanner;
 
 public class Main{
-     public static void main(String []args){
+    
+         
+
+         
+    public static void main(String []args){
+        class Person{
+            String fullName;
+            boolean loggedIn;
+            
+            void Person(){
+                fullName = "empty";
+                loggedIn = false;
+            }
+        }
          // catch any errors
          try{
-             login("test");
-             //intro();
+            // initialize employees array
+            Person[] employees = new Person[26]; // 26 employees
+            // create employee objects
+            for(int i = 0; i < employees.length; i++){
+                employees[i] = new Person();
+            }
+            
+            login(employees,"test");
+            //intro();
          } catch (Exception e){
              System.out.println("\n[ERROR] Error caught:\n\t"+e);
          }
      }
-     
-     public static class employee{
-         String fullName;
-         boolean loggedIn;
-         
-         void employee(){
-             fullName = "empty";
-             loggedIn = false;
-         }
-     }
-     static employee[] employees = new employee[26]; // 26 employees
-     employees[0].fullName = "John Doe";
-     
+
      // load up introduction
      public static void intro(){
         System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nType login type [e/v/g] for options: ");
@@ -61,10 +69,8 @@ public class Main{
      }
      
      // initiate login (param: full name)
-     public static void login(String name){
-         for(employee i : employees){
-             System.out.println(i);
-         }
+     public static void login(Person[] employees, String name){
+
      }
      
      // initiate logout (param: full name)

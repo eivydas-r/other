@@ -21,60 +21,81 @@ Successfully logged [FULL NAME] out at 0:00:00
 */
 
 import java.util.Scanner;
+import java.util.ArrayList;
+
+
+class Person{
+	String name;
+	boolean loggedIn;
+
+	Person(){
+		name = "empty";
+		loggedIn = false;
+	}
+
+	Person(String name, boolean loggedIn){
+		this.name = name;
+		this.loggedIn = loggedIn;
+	}
+}
+
 
 public class Main{
-    
-         
-
-         
     public static void main(String []args){
-        class Person{
-            String fullName;
-            boolean loggedIn;
-            
-            void Person(){
-                fullName = "empty";
-                loggedIn = false;
-            }
-        }
          // catch any errors
          try{
             // initialize employees array
-            Person[] employees = new Person[26]; // 26 employees
-            // create employee objects
-            for(int i = 0; i < employees.length; i++){
-                employees[i] = new Person();
-            }
+			ArrayList<Person> employees = new ArrayList<Person>();
+			employees.add(new Person ("Joe",true));
+
+			System.out.println(employees.get(0).name);
+
+            //login(employees,"test");
+			intro();
             
-            login(employees,"test");
-            //intro();
          } catch (Exception e){
              System.out.println("\n[ERROR] Error caught:\n\t"+e);
          }
      }
 
-     // load up introduction
-     public static void intro(){
+	      // load up introduction
+    public static void intro(){
         System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nType login type [e/v/g] for options: ");
          
         Scanner scan = new Scanner(System.in);
-        
+        String input;
         // does current terminal window allow Scanner inputs?
         if(scan.hasNextLine()){
-            String input = scan.nextLine();
+            input = scan.nextLine();
         } else { 
             throw new IllegalArgumentException("\n\tNo Scanner input available in current terminal.");
         }
 
-     }
+		switch(input){
+			case "e":
+				System.out.println("Employee name: ");
+				break;
+			case "g":
+				System.out.println("Guest name: ");
+				break;
+			case "v":
+				System.out.println("Visitor name: ");
+				break;
+			default:
+				System.out.println("Incorrect input, please try again.")
+		}
+
+		input = scan.nextLine();
+
+    }
      
      // initiate login (param: full name)
-     public static void login(Person[] employees, String name){
+    public static void login(Person[] employees, String name){
 
-     }
+    }
      
      // initiate logout (param: full name)
-     public static void logout(){
+    public static void logout(){
          
-     }
+    }
 }

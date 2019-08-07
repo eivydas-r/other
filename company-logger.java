@@ -60,18 +60,21 @@ public class Main{
 
 	      // load up introduction
     public static void intro(){
-        System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nType login type [e/v/g] for options: ");
+        System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nEnter login type [e/v/g] for options:");
          
         Scanner scan = new Scanner(System.in);
         String input;
+		System.out.print("\t");
+
         // does current terminal window allow Scanner inputs?
         if(scan.hasNextLine()){
             input = scan.nextLine();
+			System.out.print("\n");
         } else { 
             throw new IllegalArgumentException("\n\tNo Scanner input available in current terminal.");
         }
 
-		switch(input){
+		switch(input.toLowerCase()){
 			case "e":
 				System.out.println("Employee name: ");
 				break;
@@ -82,9 +85,10 @@ public class Main{
 				System.out.println("Visitor name: ");
 				break;
 			default:
-				System.out.println("Incorrect input, please try again.")
+				System.out.println("Incorrect input, please try again.");
 		}
 
+		System.out.print("\t");
 		input = scan.nextLine();
 
     }

@@ -67,27 +67,29 @@ public class Main{
 		System.out.print("\t");
 
         // does current terminal window allow Scanner inputs?
-        if(scan.hasNextLine()){
-            input = scan.nextLine();
-			System.out.print("\n");
-        } else { 
-            throw new IllegalArgumentException("\n\tNo Scanner input available in current terminal.");
+        if(!scan.hasNextLine()){
+			throw new IllegalArgumentException("\n\tNo Scanner input available in current terminal.");
         }
-
-		switch(input.toLowerCase()){
-			case "e":
-				System.out.println("Employee name: ");
-				break;
-			case "g":
-				System.out.println("Guest name: ");
-				break;
-			case "v":
-				System.out.println("Visitor name: ");
-				break;
-			default:
-				System.out.println("Incorrect input, please try again.");
+		
+		while(true){
+			System.out.print("\n");
+			input = scan.nextLine();
+			switch(input.toLowerCase()){
+				case "e":
+					System.out.println("Employee name: ");
+					break;
+				case "g":
+					System.out.println("Guest name: ");
+					break;
+				case "v":
+					System.out.println("Visitor name: ");
+					break;
+				default:
+					System.out.println("Incorrect input, please try again.");
+					continue;
+			}
+			break;
 		}
-
 		System.out.print("\t");
 		input = scan.nextLine();
 

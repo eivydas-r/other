@@ -58,7 +58,7 @@ public class Main{
          }
      }
 
-	      // load up introduction
+	// load up introduction
     public static void intro(){
         System.out.println("COMPANY LOGIN: \n\tEmployee: [e]\n\tVisitor/Guest: [v/g]\n\nEnter login type [e/v/g] for options:");
          
@@ -70,7 +70,7 @@ public class Main{
         if(!scan.hasNextLine()){
 			throw new IllegalArgumentException("\n\tNo Scanner input available in current terminal.");
         }
-		
+
 		while(true){
 			System.out.print("\n");
 			input = scan.nextLine();
@@ -92,6 +92,7 @@ public class Main{
 		}
 		System.out.print("\t");
 		input = scan.nextLine();
+		
 
     }
      
